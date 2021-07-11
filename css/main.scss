@@ -1,0 +1,60 @@
+$font-stack: Roboto, sans-serif;
+$theme-bg: #1f1d2b;
+
+* {
+      box-sizing: border-box; // внутренний padding не увеличивает Ш и В
+}
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+      width: 6px;
+      border-radius: 10px;
+}
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+      background-color: rgba(21, 20, 26, 0.63);
+      border-radius: 10px;
+}
+
+body {
+      font-family: $font-stack;
+      background: url(/img/background.jpg)  no-repeat fixed ;
+      background-size: cover;
+      background-blend-mode: color-dodge;
+      background-color: rgba(18, 21, 39, 0.86);
+      height: 100vh;
+      overflow: hidden; // Отображается только область внутри элемента, остальное будет скрыто.
+      margin: 0;
+      display: flex;
+      align-items: center;
+}
+
+.container {
+      background-color: $theme-bg;
+      max-width: 1240px;
+      max-height: 900px;
+      height: 95vh; // высота контейнера относительно высоты окна 97/100 (ширина vw)
+      width: 100%; // контейнер займет всю ширину родительского блока,
+      margin: auto; // выравнивает контейнер по центру ширины и высоты
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
+      position: relative;
+}
+
+.sidebar {
+      width: 220px;
+      height: 100%;
+      overflow-x: hidden; // по оси X не прокручивается и отображается только область элемента
+      overflow-y: scroll; // по оси Y будет прокручиватся контент 
+      padding: 30px;
+      
+      a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 19px;
+            position: sticky;
+            top: 0;
+            letter-spacing: 0.1em;
+            font-weight: 600;   
+      }
+}
