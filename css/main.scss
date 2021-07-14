@@ -1,60 +1,128 @@
-$font-stack: Roboto, sans-serif;
+$font-stack: Roboto,
+sans-serif;
 $theme-bg: #1f1d2b;
+$body-color: #808191;
 
 * {
-      box-sizing: border-box; // внутренний padding не увеличивает Ш и В
+    box-sizing: border-box; // внутренний padding не увеличивает Ш и В
 }
 
 /* полоса прокрутки (скроллбар) */
 ::-webkit-scrollbar {
-      width: 6px;
-      border-radius: 10px;
+    width: 6px;
+    border-radius: 10px;
 }
+
 /* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
-      background-color: rgba(21, 20, 26, 0.63);
-      border-radius: 10px;
+    background-color: rgba(21, 20, 26, 0.63);
+    border-radius: 10px;
 }
 
 body {
-      font-family: $font-stack;
-      background: url(/img/background.jpg)  no-repeat fixed ;
-      background-size: cover;
-      background-blend-mode: color-dodge;
-      background-color: rgba(18, 21, 39, 0.86);
-      height: 100vh;
-      overflow: hidden; // Отображается только область внутри элемента, остальное будет скрыто.
-      margin: 0;
-      display: flex;
-      align-items: center;
+    font-family: $font-stack;
+    font-weight: 300;
+    background: url(/img/background.jpg) no-repeat fixed;
+    background-size: cover;
+    background-blend-mode: color-dodge;
+    background-color: rgba(18, 21, 39, 0.86);
+    height: 100vh;
+    overflow: hidden; // Отображается только область внутри элемента, остальное будет скрыто.
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px 32px;
 }
 
 .container {
-      background-color: $theme-bg;
-      max-width: 1240px;
-      max-height: 900px;
-      height: 95vh; // высота контейнера относительно высоты окна 97/100 (ширина vw)
-      width: 100%; // контейнер займет всю ширину родительского блока,
-      margin: auto; // выравнивает контейнер по центру ширины и высоты
-      border-radius: 20px;
-      box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
-      position: relative;
+    background-color: $theme-bg;
+    max-width: 1240px;
+    max-height: 900px;
+    height: 95vh; // высота контейнера относительно высоты окна 97/100 (ширина vw)
+    width: 100%; // контейнер займет всю ширину родительского блока,
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgb(0 0 0 / 30%);
+    position: relative;
 }
 
+
+
 .sidebar {
-      width: 220px;
-      height: 100%;
-      overflow-x: hidden; // по оси X не прокручивается и отображается только область элемента
-      overflow-y: scroll; // по оси Y будет прокручиватся контент 
-      padding: 30px;
-      
-      a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 19px;
-            position: sticky;
-            top: 0;
-            letter-spacing: 0.1em;
-            font-weight: 600;   
-      }
+    width: 220px;
+    height: 100%;
+    overflow-x: hidden; // по оси X не прокручивается и отображается только область элемента
+    overflow-y: scroll; // по оси Y будет прокручиватся контент 
+    padding: 30px;
+
+    .logo-expand {
+        text-decoration: none;
+        color: #fff;
+        font-size: 19px;
+        position: sticky;
+        top: 0;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+
+        &::before {
+            // Задний фон для логотипа 
+            content: "";
+            position: absolute;
+            top: -30px;
+            left: 0;
+            background: $theme-bg;
+            width: 200px;
+            height: 70px;
+            z-index: -1;
+        }
+    }
+
+    aside {
+        padding: 36px 0;
+        .nav-title {
+            color: $body-color;
+            font-size: 0.7em;
+            font-weight: 300;
+        }
+        .nav-menu {
+            .nav-ul {
+                list-style-type: none;
+                padding: 0;
+                .nav-item {
+                    margin-bottom: 26px;
+                   &:hover {
+                       .icon {
+                           transform: translateX(-5px);
+                           margin-right: 0px;
+                           fill: #fff;
+                       }
+                       .nav-text {
+                           color: #fff;
+                       }
+                   }
+                }
+                .nav-link {
+                    text-decoration: none;
+                     display: flex;
+                     align-items: center;
+
+                     .icon {
+                         fill: $body-color;
+                         padding: 5px;
+                         margin-right: 10px;
+                         transition: all .6s cubic-bezier(0.43, -1.08, 0.46, 1.98),
+                         fill 0s;
+                     }
+                     .nav-text {
+                         color: $body-color ;
+                         font-size: 15px;
+                     }
+                }
+            }
+        }
+
+
+    }
+
 }
