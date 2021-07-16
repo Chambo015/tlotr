@@ -1,5 +1,4 @@
-$font-stack: Roboto,
-sans-serif;
+$font-stack: Roboto, tahoma, sans-serif;
 $theme-bg: #1f1d2b;
 $body-color: #808191;
 
@@ -22,7 +21,7 @@ $body-color: #808191;
 body {
     font-family: $font-stack;
     font-weight: 300;
-    background: url(/img/background.jpg) no-repeat fixed;
+    background: url(../img/background.jpg) no-repeat fixed;
     background-size: cover;
     background-blend-mode: color-dodge;
     background-color: rgba(18, 21, 39, 0.86);
@@ -113,6 +112,7 @@ body {
                          margin-right: 10px;
                          transition: all .6s cubic-bezier(0.43, -1.08, 0.46, 1.98),
                          fill 0s;
+                        flex-shrink: 0; // Ему запретили сжиматься, поэтому его ширина останется равной
                      }
                      .nav-text {
                          color: $body-color ;
